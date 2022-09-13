@@ -34,8 +34,8 @@ pipeline {
            agent any
            steps {
               script {
-                sh ''' #TODO
-                    curl -s -o /dev/null -w "{http_code}" http://172.17.0.1:${PORT_EXPOSED} | grep -q 200
+                sh '''
+                    curl http://172.17.0.1:${PORT_EXPOSED} | grep -q "Welcome"
                 '''
               }
            }
